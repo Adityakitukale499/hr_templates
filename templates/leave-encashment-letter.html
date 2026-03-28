@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leave Encashment Letter</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff; color: #333; font-size: 14px; line-height: 1.7; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff url("../leter_head.png") top center no-repeat; background-size: 100% auto; position: relative; }
+  .letter-content { padding: 160px 60px 60px 60px; }
+  .letter-date { text-align: right; margin-bottom: 30px; font-size: 14px; color: #444; }
+  .employee-details { margin-bottom: 30px; line-height: 1.8; }
+  .employee-details p { margin: 0; font-size: 14px; }
+  .employee-name { font-weight: 700; font-size: 15px; color: #1a365d; }
+  .letter-subject { margin: 25px 0; font-size: 15px; font-weight: 700; color: #1a365d; text-decoration: underline; text-align: center; }
+  .salutation { margin-bottom: 20px; font-size: 14px; }
+  .letter-body { margin-bottom: 40px; text-align: justify; font-size: 14px; line-height: 1.8; }
+  .letter-body p { margin-bottom: 12px; }
+  .letter-body table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+  .letter-body table th, .letter-body table td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; font-size: 13px; }
+  .letter-body table th { background: #f0f0f0; font-weight: 600; }
+  .letter-closing { margin-top: 50px; }
+  .letter-closing p { margin: 4px 0; font-size: 14px; }
+  .closing-regards { margin-bottom: 50px; }
+  .signatory-name { font-weight: 700; color: #1a365d; }
+  .signatory-designation { font-size: 13px; color: #555; }
+  .back-link { display: inline-block; margin: 15px 30px; font-size: 13px; color: #2b6cb0; text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media print { .back-link { display: none; } body { background: none; } .page { width: 100%; min-height: auto; box-shadow: none; } }
+  @media screen { body { background: #e8e8e8; padding: 30px 0; } .page { box-shadow: 0 2px 20px rgba(0,0,0,0.15); border-radius: 2px; } }
+</style>
+</head>
+<body>
+<a class="back-link" href="../index.html">&larr; Back to Checklist</a>
+<div class="page">
+  <div class="letter-content">
+    <div class="letter-date">Date: {{date}}</div>
+    <div class="employee-details">
+      <p class="employee-name">{{employee_name}}</p>
+      <p>Employee ID: {{employee_id}}</p>
+      <p>Designation: {{designation}}</p>
+      <p>Department: {{department}}</p>
+    </div>
+    <div class="letter-subject">Subject: Leave Encashment</div>
+    <div class="salutation">Dear {{employee_name}},</div>
+    <div class="letter-body">
+      <p>With reference to your request for encashment of unused leave, we are pleased to inform you that your leave encashment application has been approved by the management.</p>
+      <p>The details of your leave encashment are as follows:</p>
+      <table>
+        <tr>
+          <th>Number of Encashable Leave Days</th>
+          <td>{{encashable_days}} days</td>
+        </tr>
+        <tr>
+          <th>Daily Rate</th>
+          <td>{{daily_rate}}</td>
+        </tr>
+        <tr>
+          <th>Calculation</th>
+          <td>{{daily_rate}} x {{encashable_days}} days</td>
+        </tr>
+        <tr>
+          <th>Total Encashment Amount</th>
+          <td>{{encashment_amount}}</td>
+        </tr>
+      </table>
+      <p>The encashment amount of <strong>{{encashment_amount}}</strong> will be credited to your salary account in <strong>{{credit_month}}</strong>. Please note that the encashment amount is subject to applicable tax deductions as per prevailing income tax regulations.</p>
+      <p>Your leave balance has been adjusted accordingly to reflect the encashed leave days. You may contact the HR department for any queries regarding the updated leave balance or the encashment calculation.</p>
+      <p>Please retain this letter for your records and future reference.</p>
+    </div>
+    <div class="letter-closing">
+      <p class="closing-regards">Yours sincerely,</p>
+      <p class="signatory-name">{{signatory_name}}</p>
+      <p class="signatory-designation">{{signatory_designation}}</p>
+      <p>{{company_name}}</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

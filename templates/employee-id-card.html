@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Identity Card</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff; color: #333; font-size: 14px; line-height: 1.7; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff url("../leter_head.png") top center no-repeat; background-size: 100% auto; position: relative; }
+  .letter-content { padding: 160px 60px 60px 60px; }
+  .letter-date { text-align: right; margin-bottom: 30px; font-size: 14px; color: #444; }
+  .employee-details { margin-bottom: 30px; line-height: 1.8; }
+  .employee-details p { margin: 0; font-size: 14px; }
+  .employee-name { font-weight: 700; font-size: 15px; color: #1a365d; }
+  .letter-subject { margin: 25px 0; font-size: 15px; font-weight: 700; color: #1a365d; text-decoration: underline; text-align: center; }
+  .salutation { margin-bottom: 20px; font-size: 14px; }
+  .letter-body { margin-bottom: 40px; text-align: justify; font-size: 14px; line-height: 1.8; }
+  .letter-body p { margin-bottom: 12px; }
+  .letter-body table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+  .letter-body table th, .letter-body table td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; font-size: 13px; }
+  .letter-body table th { background: #f0f0f0; font-weight: 600; }
+  .letter-closing { margin-top: 50px; }
+  .letter-closing p { margin: 4px 0; font-size: 14px; }
+  .closing-regards { margin-bottom: 50px; }
+  .signatory-name { font-weight: 700; color: #1a365d; }
+  .signatory-designation { font-size: 13px; color: #555; }
+  .back-link { display: inline-block; margin: 15px 30px; font-size: 13px; color: #2b6cb0; text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media print { .back-link { display: none; } body { background: none; } .page { width: 100%; min-height: auto; box-shadow: none; } }
+  @media screen { body { background: #e8e8e8; padding: 30px 0; } .page { box-shadow: 0 2px 20px rgba(0,0,0,0.15); border-radius: 2px; } }
+
+  /* ID Card Specific Styles */
+  .id-card-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 20px; }
+  .id-card { width: 85mm; height: 55mm; border: 2px solid #1a365d; border-radius: 8px; overflow: hidden; position: relative; background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+  .id-card-front .card-header { background: #1a365d; color: #fff; padding: 6px 12px; text-align: center; font-size: 10px; font-weight: 700; letter-spacing: 1px; }
+  .id-card-front .card-body { display: flex; padding: 8px 12px; gap: 10px; }
+  .id-card-front .photo-area { width: 60px; height: 70px; border: 1px solid #ccc; background: #e2e8f0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; }
+  .id-card-front .photo-area img { width: 100%; height: 100%; object-fit: cover; }
+  .id-card-front .card-info { font-size: 8.5px; line-height: 1.6; }
+  .id-card-front .card-info .emp-name { font-size: 11px; font-weight: 700; color: #1a365d; margin-bottom: 2px; }
+  .id-card-front .card-info span { color: #555; }
+  .id-card-front .card-footer { position: absolute; bottom: 0; left: 0; right: 0; background: #1a365d; color: #fff; text-align: center; font-size: 7px; padding: 3px; letter-spacing: 0.5px; }
+  .id-card-back .card-header { background: #1a365d; color: #fff; padding: 6px 12px; text-align: center; font-size: 9px; font-weight: 700; letter-spacing: 1px; }
+  .id-card-back .card-body { padding: 8px 12px; font-size: 8.5px; line-height: 1.8; }
+  .id-card-back .card-body strong { color: #1a365d; }
+  .id-card-back .card-footer { position: absolute; bottom: 0; left: 0; right: 0; background: #1a365d; color: #fff; text-align: center; font-size: 7px; padding: 3px; }
+  .id-card-back .sign-area { margin-top: 6px; text-align: right; font-size: 8px; border-top: 1px solid #ccc; padding-top: 4px; }
+</style>
+</head>
+<body>
+<a class="back-link" href="../index.html">&larr; Back to Checklist</a>
+<div class="page">
+  <div class="letter-content">
+    <div class="letter-date">Date: {{date}}</div>
+    <div class="employee-details">
+      <p class="employee-name">{{employee_name}}</p>
+      <p>Employee ID: {{employee_id}}</p>
+      <p>Designation: {{designation}}</p>
+      <p>Department: {{department}}</p>
+    </div>
+    <div class="letter-subject">Subject: Employee Identity Card</div>
+    <div class="salutation">Dear {{employee_name}},</div>
+    <div class="letter-body">
+      <p>Please find below your Employee Identity Card. This card must be worn visibly at all times while on Company premises. In case of loss or damage, please report immediately to the HR Department.</p>
+
+      <div class="id-card-container">
+        <!-- Front Side -->
+        <div class="id-card id-card-front">
+          <div class="card-header">{{company_name}} &mdash; EMPLOYEE IDENTITY CARD</div>
+          <div class="card-body">
+            <div class="photo-area">
+              <img src="{{employee_photo}}" alt="Employee Photo">
+            </div>
+            <div class="card-info">
+              <div class="emp-name">{{employee_name}}</div>
+              <div><span>ID:</span> {{employee_id}}</div>
+              <div><span>Designation:</span> {{designation}}</div>
+              <div><span>Department:</span> {{department}}</div>
+              <div><span>DOJ:</span> {{date_of_joining}}</div>
+              <div><span>Blood Group:</span> {{blood_group}}</div>
+            </div>
+          </div>
+          <div class="card-footer">Valid Until: {{card_validity}}</div>
+        </div>
+
+        <!-- Back Side -->
+        <div class="id-card id-card-back">
+          <div class="card-header">{{company_name}}</div>
+          <div class="card-body">
+            <p><strong>Emergency Contact:</strong> {{emergency_contact}}</p>
+            <p><strong>Blood Group:</strong> {{blood_group}}</p>
+            <p><strong>Employee ID:</strong> {{employee_id}}</p>
+            <p style="margin-top: 6px; font-size: 7.5px; color: #666;">This card is the property of {{company_name}}. If found, please return to the HR Department. Unauthorized use of this card is strictly prohibited.</p>
+            <div class="sign-area">
+              Authorized Signatory
+            </div>
+          </div>
+          <div class="card-footer">Valid Until: {{card_validity}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="letter-closing">
+      <p class="closing-regards">Yours sincerely,</p>
+      <p class="signatory-name">{{signatory_name}}</p>
+      <p class="signatory-designation">{{signatory_designation}}</p>
+      <p>{{company_name}}</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

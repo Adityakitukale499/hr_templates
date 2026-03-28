@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internal Circular - Policy Update</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff; color: #333; font-size: 14px; line-height: 1.7; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff url("../leter_head.png") top center no-repeat; background-size: 100% auto; position: relative; }
+  .letter-content { padding: 160px 60px 60px 60px; }
+  .letter-date { text-align: right; margin-bottom: 30px; font-size: 14px; color: #444; }
+  .employee-details { margin-bottom: 30px; line-height: 1.8; }
+  .employee-details p { margin: 0; font-size: 14px; }
+  .employee-name { font-weight: 700; font-size: 15px; color: #1a365d; }
+  .letter-subject { margin: 25px 0; font-size: 15px; font-weight: 700; color: #1a365d; text-decoration: underline; text-align: center; }
+  .salutation { margin-bottom: 20px; font-size: 14px; }
+  .letter-body { margin-bottom: 40px; text-align: justify; font-size: 14px; line-height: 1.8; }
+  .letter-body p { margin-bottom: 12px; }
+  .letter-body table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+  .letter-body table th, .letter-body table td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; font-size: 13px; }
+  .letter-body table th { background: #f0f0f0; font-weight: 600; }
+  .letter-closing { margin-top: 50px; }
+  .letter-closing p { margin: 4px 0; font-size: 14px; }
+  .closing-regards { margin-bottom: 50px; }
+  .signatory-name { font-weight: 700; color: #1a365d; }
+  .signatory-designation { font-size: 13px; color: #555; }
+  .back-link { display: inline-block; margin: 15px 30px; font-size: 13px; color: #2b6cb0; text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media print { .back-link { display: none; } body { background: none; } .page { width: 100%; min-height: auto; box-shadow: none; } }
+  @media screen { body { background: #e8e8e8; padding: 30px 0; } .page { box-shadow: 0 2px 20px rgba(0,0,0,0.15); border-radius: 2px; } }
+</style>
+</head>
+<body>
+<a class="back-link" href="../index.html">&larr; Back to Checklist</a>
+<div class="page">
+  <div class="letter-content">
+    <div class="letter-date">Date: {{date}}</div>
+    <div class="employee-details">
+      <p class="employee-name">Internal Circular</p>
+      <p>Reference No: {{circular_number}}</p>
+      <p>Effective Date: {{effective_date}}</p>
+      <p>Applicable To: {{applicable_to}}</p>
+    </div>
+    <div class="letter-subject">Subject: {{circular_subject}}</div>
+    <div class="salutation">Dear Team,</div>
+    <div class="letter-body">
+      <p>This circular is issued to inform all concerned employees regarding an important policy update / organizational announcement. Please read the details carefully.</p>
+      <p><strong>Reference Number:</strong> {{circular_number}}</p>
+      <p><strong>Effective Date:</strong> {{effective_date}}</p>
+      <p><strong>Policy Update Details:</strong></p>
+      <p>{{policy_details}}</p>
+      <p><strong>Applicability:</strong></p>
+      <p>This policy update is applicable to <strong>{{applicable_to}}</strong>. All employees falling under the above category are required to comply with the updated guidelines with effect from the effective date mentioned above.</p>
+      <p>Non-compliance with the updated policy may result in disciplinary action as per the company's HR policy framework.</p>
+      <p><strong>For Queries &amp; Clarifications:</strong></p>
+      <p>For any questions, clarifications, or further information regarding this circular, please contact <strong>{{contact_person}}</strong>.</p>
+      <p>All employees are requested to acknowledge receipt of this circular and ensure adherence to the updated guidelines.</p>
+    </div>
+    <div class="letter-closing">
+      <p class="closing-regards">Yours sincerely,</p>
+      <p class="signatory-name">{{signatory_name}}</p>
+      <p class="signatory-designation">{{signatory_designation}}</p>
+      <p>{{company_name}}</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

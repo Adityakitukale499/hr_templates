@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full &amp; Final Settlement Statement</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff; color: #333; font-size: 14px; line-height: 1.7; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff url("../leter_head.png") top center no-repeat; background-size: 100% auto; position: relative; }
+  .letter-content { padding: 160px 60px 60px 60px; }
+  .letter-date { text-align: right; margin-bottom: 30px; font-size: 14px; color: #444; }
+  .employee-details { margin-bottom: 30px; line-height: 1.8; }
+  .employee-details p { margin: 0; font-size: 14px; }
+  .employee-name { font-weight: 700; font-size: 15px; color: #1a365d; }
+  .letter-subject { margin: 25px 0; font-size: 15px; font-weight: 700; color: #1a365d; text-decoration: underline; text-align: center; }
+  .salutation { margin-bottom: 20px; font-size: 14px; }
+  .letter-body { margin-bottom: 40px; text-align: justify; font-size: 14px; line-height: 1.8; }
+  .letter-body p { margin-bottom: 12px; }
+  .letter-body table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+  .letter-body table th, .letter-body table td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; font-size: 13px; }
+  .letter-body table th { background: #f0f0f0; font-weight: 600; }
+  .letter-closing { margin-top: 50px; }
+  .letter-closing p { margin: 4px 0; font-size: 14px; }
+  .closing-regards { margin-bottom: 50px; }
+  .signatory-name { font-weight: 700; color: #1a365d; }
+  .signatory-designation { font-size: 13px; color: #555; }
+  .back-link { display: inline-block; margin: 15px 30px; font-size: 13px; color: #2b6cb0; text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media print { .back-link { display: none; } body { background: none; } .page { width: 100%; min-height: auto; box-shadow: none; } }
+  @media screen { body { background: #e8e8e8; padding: 30px 0; } .page { box-shadow: 0 2px 20px rgba(0,0,0,0.15); border-radius: 2px; } }
+</style>
+</head>
+<body>
+<a class="back-link" href="../index.html">&larr; Back to Checklist</a>
+<div class="page">
+  <div class="letter-content">
+    <div class="letter-date">Date: {{date}}</div>
+    <div class="employee-details">
+      <p class="employee-name">{{employee_name}}</p>
+      <p>Employee ID: {{employee_id}}</p>
+      <p>Designation: {{designation}}</p>
+      <p>Department: {{department}}</p>
+    </div>
+    <div class="letter-subject">Subject: Full &amp; Final Settlement Statement</div>
+    <div class="salutation">Dear {{employee_name}},</div>
+    <div class="letter-body">
+      <p>Please find below the details of your Full &amp; Final Settlement statement prepared in connection with your separation from the organization.</p>
+
+      <p><strong>A. Earnings</strong></p>
+      <table>
+        <tr>
+          <th>Particulars</th>
+          <th>Amount</th>
+        </tr>
+        <tr>
+          <td>Pending Salary</td>
+          <td>{{pending_salary}}</td>
+        </tr>
+        <tr>
+          <td>Leave Encashment</td>
+          <td>{{leave_encashment}}</td>
+        </tr>
+        <tr>
+          <td>Bonus</td>
+          <td>{{bonus_amount}}</td>
+        </tr>
+        <tr>
+          <td>Gratuity</td>
+          <td>{{gratuity_amount}}</td>
+        </tr>
+        <tr>
+          <td>Other Earnings</td>
+          <td>{{other_earnings}}</td>
+        </tr>
+        <tr>
+          <th>Total Earnings</th>
+          <th>{{total_earnings}}</th>
+        </tr>
+      </table>
+
+      <p><strong>B. Deductions</strong></p>
+      <table>
+        <tr>
+          <th>Particulars</th>
+          <th>Amount</th>
+        </tr>
+        <tr>
+          <td>Notice Period Recovery</td>
+          <td>{{notice_recovery}}</td>
+        </tr>
+        <tr>
+          <td>Loan Recovery</td>
+          <td>{{loan_recovery}}</td>
+        </tr>
+        <tr>
+          <td>Other Deductions</td>
+          <td>{{other_deductions}}</td>
+        </tr>
+        <tr>
+          <th>Total Deductions</th>
+          <th>{{total_deductions}}</th>
+        </tr>
+      </table>
+
+      <p><strong>C. Net Settlement</strong></p>
+      <table>
+        <tr>
+          <th>Net Payable / Recoverable Amount</th>
+          <th>{{net_settlement_amount}}</th>
+        </tr>
+      </table>
+
+      <p>The net settlement amount will be processed via {{payment_mode}} within {{settlement_timeline}} from the date of completion of all exit formalities and receipt of this signed acknowledgement.</p>
+      <p>Please review the above details and sign a copy of this statement as acknowledgement of receipt and acceptance. In case of any discrepancy, kindly reach out to the HR department within 7 working days.</p>
+    </div>
+    <div class="letter-closing">
+      <p class="closing-regards">Yours sincerely,</p>
+      <p class="signatory-name">{{signatory_name}}</p>
+      <p class="signatory-designation">{{signatory_designation}}</p>
+      <p>{{company_name}}</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

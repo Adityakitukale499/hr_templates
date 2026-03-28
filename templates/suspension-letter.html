@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suspension Letter</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff; color: #333; font-size: 14px; line-height: 1.7; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff url("../leter_head.png") top center no-repeat; background-size: 100% auto; position: relative; }
+  .letter-content { padding: 160px 60px 60px 60px; }
+  .letter-date { text-align: right; margin-bottom: 30px; font-size: 14px; color: #444; }
+  .employee-details { margin-bottom: 30px; line-height: 1.8; }
+  .employee-details p { margin: 0; font-size: 14px; }
+  .employee-name { font-weight: 700; font-size: 15px; color: #1a365d; }
+  .letter-subject { margin: 25px 0; font-size: 15px; font-weight: 700; color: #1a365d; text-decoration: underline; text-align: center; }
+  .salutation { margin-bottom: 20px; font-size: 14px; }
+  .letter-body { margin-bottom: 40px; text-align: justify; font-size: 14px; line-height: 1.8; }
+  .letter-body p { margin-bottom: 12px; }
+  .letter-body table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+  .letter-body table th, .letter-body table td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; font-size: 13px; }
+  .letter-body table th { background: #f0f0f0; font-weight: 600; }
+  .letter-closing { margin-top: 50px; }
+  .letter-closing p { margin: 4px 0; font-size: 14px; }
+  .closing-regards { margin-bottom: 50px; }
+  .signatory-name { font-weight: 700; color: #1a365d; }
+  .signatory-designation { font-size: 13px; color: #555; }
+  .back-link { display: inline-block; margin: 15px 30px; font-size: 13px; color: #2b6cb0; text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media print { .back-link { display: none; } body { background: none; } .page { width: 100%; min-height: auto; box-shadow: none; } }
+  @media screen { body { background: #e8e8e8; padding: 30px 0; } .page { box-shadow: 0 2px 20px rgba(0,0,0,0.15); border-radius: 2px; } }
+</style>
+</head>
+<body>
+<a class="back-link" href="../index.html">&larr; Back to Checklist</a>
+<div class="page">
+  <div class="letter-content">
+    <div class="letter-date">Date: {{date}}</div>
+    <div class="employee-details">
+      <p class="employee-name">{{employee_name}}</p>
+      <p>Employee ID: {{employee_id}}</p>
+      <p>Designation: {{designation}}</p>
+      <p>Department: {{department}}</p>
+    </div>
+    <div class="letter-subject">Subject: Suspension from Duties</div>
+    <div class="salutation">Dear {{employee_name}},</div>
+    <div class="letter-body">
+      <p>This is to inform you that, pursuant to a decision by the management, you are hereby suspended from your duties with immediate effect from <strong>{{suspension_date}}</strong>, pending an inquiry into the matter described below.</p>
+      <table>
+        <tr>
+          <th>Effective Date of Suspension</th>
+          <td>{{suspension_date}}</td>
+        </tr>
+        <tr>
+          <th>Subject of Inquiry</th>
+          <td>{{inquiry_subject}}</td>
+        </tr>
+        <tr>
+          <th>Suspension Period</th>
+          <td>{{suspension_period}}</td>
+        </tr>
+        <tr>
+          <th>Subsistence Allowance</th>
+          <td>{{subsistence_allowance}}</td>
+        </tr>
+        <tr>
+          <th>Inquiry Officer</th>
+          <td>{{inquiry_officer}}</td>
+        </tr>
+      </table>
+      <p><strong>Terms and Conditions During Suspension:</strong></p>
+      <p>1. During the period of suspension, you will be entitled to a subsistence allowance of <strong>{{subsistence_allowance}}</strong> as per company policy and applicable regulations.</p>
+      <p>2. Your access to the company premises, systems, email, and all company resources will be restricted during the suspension period. You are required to surrender your access card, company-issued devices, and any other company property to the HR department immediately.</p>
+      <p>3. You must remain available and reachable at your registered address and contact number during the suspension period. You are required to make yourself available for the inquiry proceedings as and when directed.</p>
+      <p>4. You shall not leave the city/town of your posting without prior written permission from the management during the suspension period.</p>
+      <p>5. You are prohibited from contacting or influencing any witnesses or parties related to the inquiry during the suspension period.</p>
+      <p>For any queries or communication regarding the inquiry, please contact the designated Inquiry Officer, <strong>{{inquiry_officer}}</strong>.</p>
+      <p>The outcome of the inquiry will determine the subsequent course of action regarding your employment. You will be informed of the inquiry proceedings and given a fair opportunity to present your case.</p>
+    </div>
+    <div class="letter-closing">
+      <p class="closing-regards">Yours sincerely,</p>
+      <p class="signatory-name">{{signatory_name}}</p>
+      <p class="signatory-designation">{{signatory_designation}}</p>
+      <p>{{company_name}}</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

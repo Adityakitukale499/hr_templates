@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form 16 - Tax Deduction Certificate</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff; color: #333; font-size: 14px; line-height: 1.7; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff url("../leter_head.png") top center no-repeat; background-size: 100% auto; position: relative; }
+  .letter-content { padding: 160px 60px 60px 60px; }
+  .letter-date { text-align: right; margin-bottom: 30px; font-size: 14px; color: #444; }
+  .employee-details { margin-bottom: 30px; line-height: 1.8; }
+  .employee-details p { margin: 0; font-size: 14px; }
+  .employee-name { font-weight: 700; font-size: 15px; color: #1a365d; }
+  .letter-subject { margin: 25px 0; font-size: 15px; font-weight: 700; color: #1a365d; text-decoration: underline; text-align: center; }
+  .salutation { margin-bottom: 20px; font-size: 14px; }
+  .letter-body { margin-bottom: 40px; text-align: justify; font-size: 14px; line-height: 1.8; }
+  .letter-body p { margin-bottom: 12px; }
+  .letter-body table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+  .letter-body table th, .letter-body table td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; font-size: 13px; }
+  .letter-body table th { background: #f0f0f0; font-weight: 600; }
+  .letter-closing { margin-top: 50px; }
+  .letter-closing p { margin: 4px 0; font-size: 14px; }
+  .closing-regards { margin-bottom: 50px; }
+  .signatory-name { font-weight: 700; color: #1a365d; }
+  .signatory-designation { font-size: 13px; color: #555; }
+  .back-link { display: inline-block; margin: 15px 30px; font-size: 13px; color: #2b6cb0; text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media print { .back-link { display: none; } body { background: none; } .page { width: 100%; min-height: auto; box-shadow: none; } }
+  @media screen { body { background: #e8e8e8; padding: 30px 0; } .page { box-shadow: 0 2px 20px rgba(0,0,0,0.15); border-radius: 2px; } }
+</style>
+</head>
+<body>
+<a class="back-link" href="../index.html">&larr; Back to Checklist</a>
+<div class="page">
+  <div class="letter-content">
+    <div class="letter-date">Date: {{date}}</div>
+    <div class="employee-details">
+      <p class="employee-name">{{employee_name}}</p>
+      <p>Employee ID: {{employee_id}}</p>
+      <p>Designation: {{designation}}</p>
+      <p>Department: {{department}}</p>
+    </div>
+    <div class="letter-subject">Subject: Form 16 - Tax Deduction Certificate for FY {{financial_year}}</div>
+    <div class="salutation">Dear {{employee_name}},</div>
+    <div class="letter-body">
+      <p>This is to certify that tax has been deducted at source (TDS) from the salary paid to you for the Financial Year <strong>{{financial_year}}</strong> (Assessment Year <strong>{{assessment_year}}</strong>) as per the provisions of the Income Tax Act, 1961.</p>
+
+      <table>
+        <tr>
+          <th colspan="2" style="text-align: center;">Employee &amp; Employer Details</th>
+        </tr>
+        <tr>
+          <td>Employee PAN</td>
+          <td>{{pan_number}}</td>
+        </tr>
+        <tr>
+          <td>Employer TAN</td>
+          <td>{{tan_number}}</td>
+        </tr>
+        <tr>
+          <td>Financial Year</td>
+          <td>{{financial_year}}</td>
+        </tr>
+        <tr>
+          <td>Assessment Year</td>
+          <td>{{assessment_year}}</td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <th colspan="2" style="text-align: center;">Summary of Salary and Tax Computation</th>
+        </tr>
+        <tr>
+          <td>Gross Salary</td>
+          <td>{{gross_salary}}</td>
+        </tr>
+        <tr>
+          <td>Less: Exemptions under Section 10</td>
+          <td>{{exemptions}}</td>
+        </tr>
+        <tr>
+          <td>Net Salary</td>
+          <td>{{net_salary}}</td>
+        </tr>
+        <tr>
+          <td>Less: Standard Deduction</td>
+          <td>{{standard_deduction}}</td>
+        </tr>
+        <tr>
+          <td>Income Chargeable under Head "Salaries"</td>
+          <td>{{income_from_salary}}</td>
+        </tr>
+        <tr>
+          <td>Add: Income from Other Sources</td>
+          <td>{{other_income}}</td>
+        </tr>
+        <tr>
+          <td>Gross Total Income</td>
+          <td>{{gross_total_income}}</td>
+        </tr>
+        <tr>
+          <td>Less: Deductions under Chapter VI-A</td>
+          <td>{{chapter_via_deductions}}</td>
+        </tr>
+        <tr>
+          <td><strong>Total Taxable Income</strong></td>
+          <td><strong>{{taxable_income}}</strong></td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <th colspan="2" style="text-align: center;">Tax Deducted &amp; Deposited</th>
+        </tr>
+        <tr>
+          <td>Tax on Total Income</td>
+          <td>{{tax_on_income}}</td>
+        </tr>
+        <tr>
+          <td>Add: Surcharge &amp; Health and Education Cess</td>
+          <td>{{surcharge_cess}}</td>
+        </tr>
+        <tr>
+          <td>Less: Relief under Section 89</td>
+          <td>{{relief_89}}</td>
+        </tr>
+        <tr>
+          <td><strong>Total TDS Deducted</strong></td>
+          <td><strong>{{total_tds}}</strong></td>
+        </tr>
+        <tr>
+          <td>Total TDS Deposited with Government</td>
+          <td>{{tds_deposited}}</td>
+        </tr>
+      </table>
+
+      <p>This certificate is issued in compliance with Section 203 of the Income Tax Act, 1961 read with Rule 31 of the Income Tax Rules, 1962. Please use this Form 16 for filing your Income Tax Return for the relevant assessment year.</p>
+    </div>
+    <div class="letter-closing">
+      <p class="closing-regards">Yours sincerely,</p>
+      <p class="signatory-name">{{signatory_name}}</p>
+      <p class="signatory-designation">{{signatory_designation}}</p>
+      <p>{{company_name}}</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

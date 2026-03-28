@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maternity/Paternity Leave Approval Letter</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff; color: #333; font-size: 14px; line-height: 1.7; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff url("../leter_head.png") top center no-repeat; background-size: 100% auto; position: relative; }
+  .letter-content { padding: 160px 60px 60px 60px; }
+  .letter-date { text-align: right; margin-bottom: 30px; font-size: 14px; color: #444; }
+  .employee-details { margin-bottom: 30px; line-height: 1.8; }
+  .employee-details p { margin: 0; font-size: 14px; }
+  .employee-name { font-weight: 700; font-size: 15px; color: #1a365d; }
+  .letter-subject { margin: 25px 0; font-size: 15px; font-weight: 700; color: #1a365d; text-decoration: underline; text-align: center; }
+  .salutation { margin-bottom: 20px; font-size: 14px; }
+  .letter-body { margin-bottom: 40px; text-align: justify; font-size: 14px; line-height: 1.8; }
+  .letter-body p { margin-bottom: 12px; }
+  .letter-body table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+  .letter-body table th, .letter-body table td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; font-size: 13px; }
+  .letter-body table th { background: #f0f0f0; font-weight: 600; }
+  .letter-closing { margin-top: 50px; }
+  .letter-closing p { margin: 4px 0; font-size: 14px; }
+  .closing-regards { margin-bottom: 50px; }
+  .signatory-name { font-weight: 700; color: #1a365d; }
+  .signatory-designation { font-size: 13px; color: #555; }
+  .back-link { display: inline-block; margin: 15px 30px; font-size: 13px; color: #2b6cb0; text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media print { .back-link { display: none; } body { background: none; } .page { width: 100%; min-height: auto; box-shadow: none; } }
+  @media screen { body { background: #e8e8e8; padding: 30px 0; } .page { box-shadow: 0 2px 20px rgba(0,0,0,0.15); border-radius: 2px; } }
+</style>
+</head>
+<body>
+<a class="back-link" href="../index.html">&larr; Back to Checklist</a>
+<div class="page">
+  <div class="letter-content">
+    <div class="letter-date">Date: {{date}}</div>
+    <div class="employee-details">
+      <p class="employee-name">{{employee_name}}</p>
+      <p>Employee ID: {{employee_id}}</p>
+      <p>Designation: {{designation}}</p>
+      <p>Department: {{department}}</p>
+    </div>
+    <div class="letter-subject">Subject: Maternity/Paternity Leave Approval</div>
+    <div class="salutation">Dear {{employee_name}},</div>
+    <div class="letter-body">
+      <p>We are pleased to inform you that your application for maternity/paternity leave has been reviewed and approved in accordance with the company's leave policy and applicable statutory provisions.</p>
+      <p>The details of your approved leave are as follows:</p>
+      <table>
+        <tr>
+          <th>Leave Start Date</th>
+          <td>{{leave_start_date}}</td>
+        </tr>
+        <tr>
+          <th>Leave End Date</th>
+          <td>{{leave_end_date}}</td>
+        </tr>
+        <tr>
+          <th>Total Duration</th>
+          <td>{{leave_duration_weeks}} weeks</td>
+        </tr>
+        <tr>
+          <th>Expected Return Date</th>
+          <td>{{expected_return_date}}</td>
+        </tr>
+      </table>
+      <p><strong>Benefits During Leave:</strong></p>
+      <p>During your maternity/paternity leave period, you will continue to receive your regular salary and benefits as per the company policy and applicable laws. Your health insurance coverage and other employee benefits will remain active throughout the leave duration.</p>
+      <p>Please note the following important points:</p>
+      <p>1. Your position will be held for you during the leave period, and you will be reinstated to the same or an equivalent role upon your return.</p>
+      <p>2. Any accrued leave balances will remain intact and will not be affected by this leave.</p>
+      <p>3. You are expected to resume duties on <strong>{{expected_return_date}}</strong>. Should you require an extension, please notify the HR department at least two weeks before your expected return date.</p>
+      <p>4. For any queries or assistance during your leave period, please contact <strong>{{hr_contact}}</strong> from the HR department.</p>
+      <p>We congratulate you and wish you and your family good health and happiness during this special time.</p>
+    </div>
+    <div class="letter-closing">
+      <p class="closing-regards">Yours sincerely,</p>
+      <p class="signatory-name">{{signatory_name}}</p>
+      <p class="signatory-designation">{{signatory_designation}}</p>
+      <p>{{company_name}}</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

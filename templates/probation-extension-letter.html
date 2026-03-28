@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Extension of Probation Period</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff; color: #333; font-size: 14px; line-height: 1.7; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff url("../leter_head.png") top center no-repeat; background-size: 100% auto; position: relative; }
+  .letter-content { padding: 160px 60px 60px 60px; }
+  .letter-date { text-align: right; margin-bottom: 30px; font-size: 14px; color: #444; }
+  .employee-details { margin-bottom: 30px; line-height: 1.8; }
+  .employee-details p { margin: 0; font-size: 14px; }
+  .employee-name { font-weight: 700; font-size: 15px; color: #1a365d; }
+  .letter-subject { margin: 25px 0; font-size: 15px; font-weight: 700; color: #1a365d; text-decoration: underline; text-align: center; }
+  .salutation { margin-bottom: 20px; font-size: 14px; }
+  .letter-body { margin-bottom: 40px; text-align: justify; font-size: 14px; line-height: 1.8; }
+  .letter-body p { margin-bottom: 12px; }
+  .letter-body table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+  .letter-body table th, .letter-body table td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; font-size: 13px; }
+  .letter-body table th { background: #f0f0f0; font-weight: 600; }
+  .letter-closing { margin-top: 50px; }
+  .letter-closing p { margin: 4px 0; font-size: 14px; }
+  .closing-regards { margin-bottom: 50px; }
+  .signatory-name { font-weight: 700; color: #1a365d; }
+  .signatory-designation { font-size: 13px; color: #555; }
+  .back-link { display: inline-block; margin: 15px 30px; font-size: 13px; color: #2b6cb0; text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media print { .back-link { display: none; } body { background: none; } .page { width: 100%; min-height: auto; box-shadow: none; } }
+  @media screen { body { background: #e8e8e8; padding: 30px 0; } .page { box-shadow: 0 2px 20px rgba(0,0,0,0.15); border-radius: 2px; } }
+</style>
+</head>
+<body>
+<a class="back-link" href="../index.html">&larr; Back to Checklist</a>
+<div class="page">
+  <div class="letter-content">
+    <div class="letter-date">Date: {{date}}</div>
+    <div class="employee-details">
+      <p class="employee-name">{{employee_name}}</p>
+      <p>Employee ID: {{employee_id}}</p>
+      <p>Designation: {{designation}}</p>
+      <p>Department: {{department}}</p>
+    </div>
+    <div class="letter-subject">Subject: Extension of Probation Period</div>
+    <div class="salutation">Dear {{employee_name}},</div>
+    <div class="letter-body">
+      <p>This is with reference to your appointment with <strong>{{company_name}}</strong> and the probation period associated with your employment. After a thorough review of your performance during the probation period, the management has decided to extend your probation by <strong>{{extension_period}}</strong>.</p>
+
+      <table>
+        <tr>
+          <th colspan="2" style="text-align: center;">Probation Extension Details</th>
+        </tr>
+        <tr>
+          <td>Extension Period</td>
+          <td>{{extension_period}}</td>
+        </tr>
+        <tr>
+          <td>New Probation End Date</td>
+          <td>{{new_probation_end_date}}</td>
+        </tr>
+        <tr>
+          <td>Reason for Extension</td>
+          <td>{{extension_reason}}</td>
+        </tr>
+        <tr>
+          <td>Next Review Date</td>
+          <td>{{next_review_date}}</td>
+        </tr>
+      </table>
+
+      <p><strong>Reason for Extension:</strong> {{extension_reason}}</p>
+
+      <p>During the extended probation period, we expect you to focus on the following areas and demonstrate measurable improvement:</p>
+
+      <p>- Meet the performance benchmarks and targets set by your reporting manager<br>
+         - Demonstrate consistent improvement in the identified areas of concern<br>
+         - Actively seek feedback and guidance from your supervisor and peers<br>
+         - Adhere to all company policies, procedures, and standards of conduct</p>
+
+      <p>Your performance will be reviewed again on <strong>{{next_review_date}}</strong>. Based on the outcome of this review, a decision regarding your confirmation or further action will be communicated to you.</p>
+
+      <p>During the extended probation period, all other terms and conditions of your employment as mentioned in your original appointment letter shall remain in effect. The company reserves the right to terminate your services during the probation period with the notice period as specified in your appointment letter.</p>
+
+      <p>We encourage you to take this extension as an opportunity to demonstrate your capabilities and align with the expectations of the role. The HR department and your reporting manager are available to support you during this period.</p>
+
+      <p>Please sign and return a copy of this letter as acknowledgment.</p>
+    </div>
+    <div class="letter-closing">
+      <p class="closing-regards">Yours sincerely,</p>
+      <p class="signatory-name">{{signatory_name}}</p>
+      <p class="signatory-designation">{{signatory_designation}}</p>
+      <p>{{company_name}}</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

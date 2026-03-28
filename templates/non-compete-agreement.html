@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Non-Compete Agreement</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff; color: #333; font-size: 14px; line-height: 1.7; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff url("../leter_head.png") top center no-repeat; background-size: 100% auto; position: relative; }
+  .letter-content { padding: 160px 60px 60px 60px; }
+  .letter-date { text-align: right; margin-bottom: 30px; font-size: 14px; color: #444; }
+  .employee-details { margin-bottom: 30px; line-height: 1.8; }
+  .employee-details p { margin: 0; font-size: 14px; }
+  .employee-name { font-weight: 700; font-size: 15px; color: #1a365d; }
+  .letter-subject { margin: 25px 0; font-size: 15px; font-weight: 700; color: #1a365d; text-decoration: underline; text-align: center; }
+  .salutation { margin-bottom: 20px; font-size: 14px; }
+  .letter-body { margin-bottom: 40px; text-align: justify; font-size: 14px; line-height: 1.8; }
+  .letter-body p { margin-bottom: 12px; }
+  .letter-body table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+  .letter-body table th, .letter-body table td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; font-size: 13px; }
+  .letter-body table th { background: #f0f0f0; font-weight: 600; }
+  .letter-closing { margin-top: 50px; }
+  .letter-closing p { margin: 4px 0; font-size: 14px; }
+  .closing-regards { margin-bottom: 50px; }
+  .signatory-name { font-weight: 700; color: #1a365d; }
+  .signatory-designation { font-size: 13px; color: #555; }
+  .back-link { display: inline-block; margin: 15px 30px; font-size: 13px; color: #2b6cb0; text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media print { .back-link { display: none; } body { background: none; } .page { width: 100%; min-height: auto; box-shadow: none; } }
+  @media screen { body { background: #e8e8e8; padding: 30px 0; } .page { box-shadow: 0 2px 20px rgba(0,0,0,0.15); border-radius: 2px; } }
+</style>
+</head>
+<body>
+<a class="back-link" href="../index.html">&larr; Back to Checklist</a>
+<div class="page">
+  <div class="letter-content">
+    <div class="letter-date">Date: {{date}}</div>
+    <div class="employee-details">
+      <p class="employee-name">{{employee_name}}</p>
+      <p>Employee ID: {{employee_id}}</p>
+      <p>Designation: {{designation}}</p>
+      <p>Department: {{department}}</p>
+    </div>
+    <div class="letter-subject">Subject: Non-Compete Agreement</div>
+    <div class="salutation">Dear {{employee_name}},</div>
+    <div class="letter-body">
+      <p>This Non-Compete Agreement ("Agreement") is entered into by and between <strong>{{company_name}}</strong> ("the Company") and <strong>{{employee_name}}</strong> ("the Employee"), effective as of the date of execution of this document. This Agreement is a condition of the Employee's continued employment and access to the Company's Confidential Information and proprietary resources.</p>
+
+      <p><strong>1. Restricted Activities.</strong> During the term of employment and for the restricted period following termination, the Employee agrees not to, directly or indirectly: (a) engage in, own, manage, operate, consult for, or be employed by any business that competes with the Company's products, services, or business activities; (b) solicit, recruit, or attempt to hire any current employee, contractor, or consultant of the Company; (c) solicit or attempt to divert any client, customer, or business partner of the Company with whom the Employee had contact or about whom the Employee acquired Confidential Information during the course of employment.</p>
+
+      <p><strong>2. Geographic Scope.</strong> The restrictions set forth in this Agreement shall apply within the following geographic area: <strong>{{geographic_scope}}</strong>. The Employee acknowledges that the Company's business operations extend throughout this region and that the restrictions are reasonable and necessary to protect the Company's legitimate business interests.</p>
+
+      <p><strong>3. Duration of Restriction.</strong> The non-compete obligations under this Agreement shall remain in effect for a period of <strong>{{non_compete_duration}}</strong> from the date of termination or cessation of the Employee's engagement with the Company, irrespective of the reason for such termination, whether voluntary or involuntary.</p>
+
+      <p><strong>4. Compensation During Restriction.</strong> In consideration of the Employee's compliance with the non-compete obligations, the Company agrees to provide reasonable compensation during the restricted period as determined by the Company's policies and applicable law. The specific terms of such compensation, if any, shall be communicated to the Employee at the time of separation from the Company.</p>
+
+      <p><strong>5. Remedies for Breach.</strong> The Employee acknowledges that a breach of this Agreement would cause the Company irreparable harm that cannot be adequately compensated by monetary damages alone. In the event of a breach or threatened breach, the Company shall be entitled to: (a) seek immediate injunctive relief from a court of competent jurisdiction; (b) recover all damages, including consequential and incidental damages; (c) recover all costs and reasonable attorney's fees incurred in enforcing this Agreement; and (d) pursue any other remedies available under applicable law.</p>
+
+      <p>By signing below, the Employee acknowledges having read, understood, and voluntarily agreed to the terms and conditions of this Non-Compete Agreement.</p>
+    </div>
+    <div class="letter-closing">
+      <p class="closing-regards">Yours sincerely,</p>
+      <p class="signatory-name">{{signatory_name}}</p>
+      <p class="signatory-designation">{{signatory_designation}}</p>
+      <p>{{company_name}}</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

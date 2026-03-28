@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Show Cause Notice</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff; color: #333; font-size: 14px; line-height: 1.7; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff url("../leter_head.png") top center no-repeat; background-size: 100% auto; position: relative; }
+  .letter-content { padding: 160px 60px 60px 60px; }
+  .letter-date { text-align: right; margin-bottom: 30px; font-size: 14px; color: #444; }
+  .employee-details { margin-bottom: 30px; line-height: 1.8; }
+  .employee-details p { margin: 0; font-size: 14px; }
+  .employee-name { font-weight: 700; font-size: 15px; color: #1a365d; }
+  .letter-subject { margin: 25px 0; font-size: 15px; font-weight: 700; color: #1a365d; text-decoration: underline; text-align: center; }
+  .salutation { margin-bottom: 20px; font-size: 14px; }
+  .letter-body { margin-bottom: 40px; text-align: justify; font-size: 14px; line-height: 1.8; }
+  .letter-body p { margin-bottom: 12px; }
+  .letter-body table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+  .letter-body table th, .letter-body table td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; font-size: 13px; }
+  .letter-body table th { background: #f0f0f0; font-weight: 600; }
+  .letter-closing { margin-top: 50px; }
+  .letter-closing p { margin: 4px 0; font-size: 14px; }
+  .closing-regards { margin-bottom: 50px; }
+  .signatory-name { font-weight: 700; color: #1a365d; }
+  .signatory-designation { font-size: 13px; color: #555; }
+  .back-link { display: inline-block; margin: 15px 30px; font-size: 13px; color: #2b6cb0; text-decoration: none; }
+  .back-link:hover { text-decoration: underline; }
+  @media print { .back-link { display: none; } body { background: none; } .page { width: 100%; min-height: auto; box-shadow: none; } }
+  @media screen { body { background: #e8e8e8; padding: 30px 0; } .page { box-shadow: 0 2px 20px rgba(0,0,0,0.15); border-radius: 2px; } }
+</style>
+</head>
+<body>
+<a class="back-link" href="../index.html">&larr; Back to Checklist</a>
+<div class="page">
+  <div class="letter-content">
+    <div class="letter-date">Date: {{date}}</div>
+    <div class="employee-details">
+      <p class="employee-name">{{employee_name}}</p>
+      <p>Employee ID: {{employee_id}}</p>
+      <p>Designation: {{designation}}</p>
+      <p>Department: {{department}}</p>
+    </div>
+    <div class="letter-subject">Subject: Show Cause Notice</div>
+    <div class="salutation">Dear {{employee_name}},</div>
+    <div class="letter-body">
+      <p>This notice is being issued to you directing you to show cause as to why disciplinary action should not be initiated against you for the misconduct and/or violation of company policies described herein.</p>
+      <p><strong>Details of the Incident:</strong></p>
+      <table>
+        <tr>
+          <th>Date of Incident</th>
+          <td>{{incident_date}}</td>
+        </tr>
+        <tr>
+          <th>Description of Misconduct</th>
+          <td>{{incident_description}}</td>
+        </tr>
+        <tr>
+          <th>Policy/Rule Violated</th>
+          <td>{{policy_violated}}</td>
+        </tr>
+        <tr>
+          <th>Response Deadline</th>
+          <td>Within {{response_deadline}} days from the date of receipt of this notice</td>
+        </tr>
+      </table>
+      <p>The above conduct on your part constitutes a serious violation of the company's policies, rules, and code of conduct, and is detrimental to the interests of the organization.</p>
+      <p>You are hereby directed to submit a written explanation within <strong>{{response_deadline}} days</strong> from the date of receipt of this notice, clearly stating the reasons and circumstances that led to the above-mentioned conduct. Your response should address all the charges outlined above and provide any supporting evidence or documentation you wish to present in your defense.</p>
+      <p>Please note that your written response should be addressed to the undersigned and submitted through proper channels.</p>
+      <p><strong>Please be advised that failure to respond within the stipulated time frame will be treated as an acceptance of the charges leveled against you, and the management will proceed to take appropriate disciplinary action based on the available facts and evidence.</strong></p>
+      <p>You are entitled to present your case and provide any explanation or mitigating circumstances that you deem relevant. The management will review your response before taking any further action in this matter.</p>
+    </div>
+    <div class="letter-closing">
+      <p class="closing-regards">Yours sincerely,</p>
+      <p class="signatory-name">{{signatory_name}}</p>
+      <p class="signatory-designation">{{signatory_designation}}</p>
+      <p>{{company_name}}</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
